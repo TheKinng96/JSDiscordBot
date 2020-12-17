@@ -8,8 +8,9 @@ client.on('ready', () => {
   console.log(`${client.user.tag} has logged in`)
 })
 
-client.on('message', (message) => {
+client.on('message', async message => {
   if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
   if (message.content.startsWith(PREFIX)) {
     const [CMD_NAME, ...args] = message.content
       .trim()
@@ -17,6 +18,7 @@ client.on('message', (message) => {
       .split(/\s+/)
     
     if (CMD_NAME === 'chorei') {
+      if(message.author)
       message.channel.send('yoyo')
     }
   }
