@@ -56,7 +56,15 @@ client.on('message', message => {
     let randomNum = getRandomInt(0,(man.length-1));
       message.channel.send('誰でしょうか');
       setTimeout(() => {
-        message.channel.send(`${members[randomNum]} is the weirdest person!!!`)
+        message.channel.send(`${man[randomNum]} is the weirdest person!!!`)
+      }, 1000)
+  }
+
+  if (message.content.toLowerCase() === "mirror, mirror, who is the most beautiful person on adsist?") {
+    let randomNum = getRandomInt(0,(woman.length-1));
+      message.channel.send('誰でしょうか');
+      setTimeout(() => {
+        message.channel.send(`${woman[randomNum]} is the most beautiful one~`)
       }, 1000)
   }
 })
