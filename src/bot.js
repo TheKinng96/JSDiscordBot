@@ -10,6 +10,14 @@ function getRandomInt(min,max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function readOutName(people) {
+  message.channel.send('誰でしょうか');
+  chosen.splice(0, 1);
+  setTimeout(() => {
+      message.channel.send(`Congratulation ${people} has been chosen!!!`)
+  }, 1000);
+}
+
 let chosen = [];
 
 let members = ['Azfar', 'Henry', 'Ippei', 'Shivani', 'Yoshie', 'Vitor', 'Chenrui', 'Bat'];
@@ -34,18 +42,9 @@ client.on('message', message => {
       
       if (chosen.includes(members[randomNum])) {
         getRandomInt(0, members.length);
-        message.channel.send('誰でしょうか');
-        setTimeout(() => {
-          message.channel.send(`Congratulation ${members[randomNum]} has been chosen!!!`)
-        }, 1000)
-        return;
+        readOutName(members[randomNum]);
       } else {
-        message.channel.send('誰でしょうか');
-        setTimeout(() => {
-          message.channel.send(`Congratulation ${members[randomNum]} has been chosen!!!`)
-        }, 1000)
-        return;
-      }
+        readOutName(members[randomNum]);
     }
 
   }
